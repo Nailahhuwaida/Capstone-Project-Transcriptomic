@@ -171,7 +171,7 @@ pheatmap(
 
 #Analisis Enrichment
 
-# 1. Install & Load Library Tambahan
+# Install & Load Library Tambahan
 if (!require("clusterProfiler", quietly = TRUE)) BiocManager::install("clusterProfiler")
 if (!require("org.Hs.eg.db", quietly = TRUE)) BiocManager::install("org.Hs.eg.db")
 if (!require("enrichplot", quietly = TRUE)) BiocManager::install("enrichplot")
@@ -212,7 +212,6 @@ dotplot(ego_all, showCategory = 10, split = "ONTOLOGY") +
   facet_grid(ONTOLOGY ~ ., scales = "free") +
   ggtitle("Gene Ontology Enrichment (BP, CC, MF)")
 
-
 # KEGG Pathway
 kegg_res <- enrichKEGG(
   gene = genes_to_test,
@@ -223,12 +222,10 @@ kegg_res <- enrichKEGG(
 barplot(kegg_res, showCategory = 10) +
   ggtitle("KEGG Pathway Enrichment")
 
-
 #MENYIMPAN HASIL 
 
 # write.csv(): menyimpan hasil analisis ke file CSV
 write.csv(topTableResults, "Hasil_GSE313408_DEG.csv")
-
 message("Analisis selesai. File hasil telah disimpan.")
 
 
